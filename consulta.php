@@ -1,7 +1,33 @@
 <?php
    include "conecta.php";
+?>
 
-   echo"<br><b>Mostrando todos os registros</b><br>";
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+
+</body>
+
+</html>
+
+<?
+echo"<br><b>Mostrando todos os produtos</b><br>";
+
+$sql = "SELECT id, descricao, fabricante, quantidade, preco-custo, preco-venda, imagem FROM produtos";
+$resultado = mysqli_query($conexao, $sql);
+
+if (mysqli_num_rows($resultado) > 0) {
+    while ($registro = mysqli_fetch_assoc($resultado)) {
+        echo "id: " . $registro["id"]. " - Descrição: " . $registro["descricao"]. " - Fabricante " . $registro["fabricante"]. " - Quantidade" . $registro["quantidade"]. " - Custo: " . $registro["preco-custo"]. " - Preço: " . $registro["preco-venda"]. "<br>";
+    }
+} else {
+echo "Nenhum registro encontrado.";
+}
+?>
+
+   <!-- echo"<br><b>Mostrando todos os registros</b><br>";
    $sql = "SELECT id, nome, senha, email FROM usuario";
    $resultado = mysqli_query($conexao, $sql);
    if (mysqli_num_rows($resultado) > 0) {
@@ -53,4 +79,4 @@ echo "Nenhum registro encontrado.";
 } else {
     echo "Nenhum registro encontrado.";
 }
-?>
+?> -->
