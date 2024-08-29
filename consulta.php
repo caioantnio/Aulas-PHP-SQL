@@ -1,8 +1,9 @@
 <?php
    include "conecta.php";
 ?>
-
+<!-- 
 <!DOCTYPE html>
+<html lang=pt-br>
 <head>
 
 </head>
@@ -12,10 +13,10 @@
 
 </html>
 
-<?
+
 echo"<br><b>Mostrando todos os produtos</b><br>";
 
-$sql = "SELECT id, descricao, fabricante, quantidade, preco-custo, preco-venda, imagem FROM produtos";
+$sql = "SELECT id, descricao, fabricante, quantidade, preco_custo, preco_venda, imagem FROM produtos";
 $resultado = mysqli_query($conexao, $sql);
 
 if (mysqli_num_rows($resultado) > 0) {
@@ -25,16 +26,16 @@ if (mysqli_num_rows($resultado) > 0) {
 } else {
 echo "Nenhum registro encontrado.";
 }
-?>
-
-   <!-- echo"<br><b>Mostrando todos os registros</b><br>";
+-->
+<?php
+   echo"<br><b>Mostrando todos os registros</b><br>";
    $sql = "SELECT id, nome, senha, email FROM usuario";
    $resultado = mysqli_query($conexao, $sql);
    if (mysqli_num_rows($resultado) > 0) {
     while ($registro = mysqli_fetch_assoc($resultado)) {
-        echo "id: " . $registro["id"]. " - Nome: " . $registro["nome"].
+        echo "<p style= 'background-Color:lightblue';> id: " . $registro["id"]. " - Nome: " . $registro["nome"].
         " " . $registro["senha"]. " - Email: " . $registro["email"].
-        "<br>";
+        "</p>";
     }
 } else {
 echo "Nenhum registro encontrado.";
@@ -74,9 +75,9 @@ echo "Nenhum registro encontrado.";
    echo"<br>";
    if (mysqli_num_rows($resultado) > 0) {
     while ($registro = mysqli_fetch_assoc($resultado)) {
-        echo "Email: " . $registro["email"]. "<br>";
+        echo "Email: " . $registro["email"]. "</p>";
     }
 } else {
     echo "Nenhum registro encontrado.";
 }
-?> -->
+?>
