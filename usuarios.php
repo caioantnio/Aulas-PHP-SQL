@@ -12,20 +12,55 @@
             background-color: black;
         }
         li{
-            padding: 5px;
+            padding: 10px;
         }
         *{
             margin: 0;
         }
         a{
             text-decoration: none;
-            color: white;
+            color: yellow;
         }
         a:hover{
-            background-color: white;
+            background-color: yellow;
             color: black;
-            padding: 10px;
+            padding: 11px;
             transition: 250ms;
+        }
+        main{
+            display: flex;
+            margin: 10px;
+            padding: 10px;
+        }
+        img{
+            width: 320px;
+        }
+        #imagem{
+            /* background-color: lightblue; */
+            /* width:"20%"; */
+            /* height:"20%"; */
+        }
+        #dados{
+            background-color: white;
+            width: 50%;
+            height: 50%;
+            color: black;
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        span{
+            color: black;
+            font-weight: bold;
+            border-bottom: 1px solid;
+            margin: 15px;
+            font-size: 20px;
+        }
+        p{
+            background-color: white;
+            /* border: 1px dashed; */
+            padding: 5px;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -42,10 +77,24 @@
     </header>
     <main>
         <div id="imagem">
-            <img src="skin.jpg">
+            <img src="https://images-americanas.b2w.io/produtos/5867254281/imagens/hello-kitty-badtz-maru-display-festa-decoracao/5867254281_1_large.jpg">
         </div>
         <div id= "dados">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, labore architecto eum aliquam mollitia, ad quia sed totam nobis tenetur, facere libero nemo nostrum porro perspiciatis quisquam beatae? Laboriosam, incidunt?</p>
+            <p>
+                <?php
+                include "conecta.php";
+                $sql = "SELECT id, nome, senha, email FROM usuario";
+                $resultado = mysqli_query($conexao, $sql);
+                if (mysqli_num_rows($resultado) > 0) {
+                    while($registro = mysqli_fetch_assoc($resultado)) {
+                        echo "<span> ID: </span>". $registro["id"];
+                        echo "<span> Nome: </span>". $registro["nome"];
+                        echo "<span> E-mail: </span>". $registro["email"];
+                        echo "<br>";
+                    }
+                }
+                ?>
+            </p>
         </div>
     </main>
 </body>
